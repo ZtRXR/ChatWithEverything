@@ -1,13 +1,37 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
+import ASide from './components/Main/ASide.vue'
+import Header from './components/Main/Header.vue'
 </script>
 
 <template>
-  
-
-  <RouterView />
+  <!-- <div class="common-layout"> -->
+  <el-container>
+    <el-aside>
+      <ASide></ASide>
+    </el-aside>
+    <el-container>
+      <el-header>
+        <Header/>
+      </el-header>
+      <el-main>
+        <RouterView />
+      </el-main>
+      <el-footer>尾部</el-footer>
+    </el-container>
+  </el-container>
+  <!-- </div> -->
 </template>
 
-<style scoped>
 
+<style scoped>
+.el-main {
+  min-height: 1080px;
+}
+
+.el-aside {
+  width: 20%;
+  min-width: 185px;
+}
 </style>
+
