@@ -1,6 +1,7 @@
 <script setup>
 
 import BoxTitle from './ChatTitle.vue'
+import MessBox from './ChatMess.vue'
 
 </script>
 
@@ -11,6 +12,9 @@ import BoxTitle from './ChatTitle.vue'
                 TestUserName
             </template>
         </BoxTitle>
+        <MessBox>
+            
+        </MessBox>
     </div>
 </template>
 

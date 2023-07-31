@@ -1,26 +1,23 @@
 <script setup>
 import { ref } from 'vue';
-// import { router } from 'router';
-
+import { useRouter, useRoute } from 'vue-router'
+import { onBeforeMount } from 'vue'
+let route = useRoute()
 const isCollapse = ref(false)
-const GotoRoute = [
-    '',
-    '/home',
-    '/test'
-]
-const handleOpen = (key, keyPath) => {
+// const handleOpen = (key, keyPath) => {
     // console.log(key, keyPath)
     // router.go(GotoRoute[key])
-}
-const handleClose = (key, keyPath) => {
-    console.log(key, keyPath)
-}
+// }
+// const handleClose = (key, keyPath) => {
+//     console.log(key, keyPath)
+// }
 </script>
 
 <template>
     <el-row class="tac">
         <el-col>
-            <el-menu default-active="1" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose">
+            <!-- @open="handleOpen" @close="handleClose" -->
+            <el-menu :default-active="route.path" :router="true" class="el-menu-vertical-demo" :collapse="isCollapse">
                 <!-- <el-menu default-active="2" class="el-menu-vertical-demo" :collapse="isCollapse"> -->
                 <!-- <el-sub-menu index="1">
                     <template #title>
@@ -41,28 +38,28 @@ const handleClose = (key, keyPath) => {
                         <el-menu-item index="1-4-1">item one</el-menu-item>
                     </el-sub-menu>
                 </el-sub-menu> -->
-                <RouterLink to="/home">
-                    <el-menu-item index="1">
+                <!-- <RouterLink to="/home"> -->
+                    <el-menu-item index="/home">
                         <el-icon>
                             <House />
                         </el-icon>
                         <span>主页</span>
                     </el-menu-item>
-                </RouterLink>
+                <!-- </RouterLink> -->
                 <!-- <el-menu-item index="2" disabled>
                     <el-icon>
                         <document />
                     </el-icon>
                     <span>Navigator Three</span>
                 </el-menu-item> -->
-                <RouterLink to="/chat">
-                    <el-menu-item index="2">
+                <!-- <RouterLink to="/chat"> -->
+                    <el-menu-item index="/chat">
                         <el-icon>
                             <ChatDotRound />
                         </el-icon>
                         <span>聊天</span>
                     </el-menu-item>
-                </RouterLink>
+                <!-- </RouterLink> -->
             </el-menu>
         </el-col>
     </el-row>
@@ -70,7 +67,6 @@ const handleClose = (key, keyPath) => {
 
 <style scoped>
 .el-menu-vertical-demo:not(.el-menu--collapse) {
-    width: 180px;
     min-height: 400px;
 }
 

@@ -17,13 +17,11 @@
 <style scoped>
 .ChatBoxTitle {
     width: 100%;
-    height: 30px;
-    background-color: rgb(232, 232, 232);
+    height: 40px;
+    background-color: rgb(238, 255, 247);
     text-align: center;
     border-radius: 50px;
-    padding-top: 5px;
+    padding-top: 15px;
 }
 
-.ChatBoxTitle span {
-}
 </style>
