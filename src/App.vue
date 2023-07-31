@@ -12,7 +12,7 @@ import Header from './components/Main/Header.vue'
     </el-aside>
     <el-container>
       <el-header>
-        <Header/>
+        <Header></Header>
       </el-header>
       <el-main>
         <RouterView />
@@ -32,6 +32,10 @@ import Header from './components/Main/Header.vue'
 .el-aside {
   width: 20%;
   min-width: 185px;
+}
+
+.el-main {
+  padding-top: 0px;
 }
 </style>
 
