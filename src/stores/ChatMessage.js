@@ -16,17 +16,7 @@ export const useMessage = defineStore(
                 chatId:0
             },{
                 sender:0,
-                text:'欢迎来到CHat With Everything!',
-                chatId:0
-            },
-            {
-                sender:0,
-                text:'欢迎来到CHat With Everything!',
-                chatId:0
-            },
-            {
-                sender:0,
-                text:'欢迎来到CHat With Everything!',
+                text:'请先登录哦，请输入 登录 来进行登录，或者输入 注册 来进行注册',
                 chatId:0
             },
         ])
