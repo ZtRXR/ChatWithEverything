@@ -4,13 +4,22 @@ import ElementPlus from 'element-plus'
 import * as ElementPlusIconsVue from '@element-plus/icons-vue' //ElementPlus 图标引入
 
 import { createApp } from 'vue'
-import { createPinia } from 'pinia'
-
 
 import App from './App.vue'
 import router from './router'
 
+import { createPinia } from 'pinia'
+import piniaPluginPersistedstate from 'pinia-plugin-persistedstate'
+
+const pinia = createPinia()
+pinia.use(piniaPluginPersistedstate)
+
+
 const app = createApp(App)
+
+// 引入pinia
+
+
 
 //ElementPlus 图标引入
 for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
@@ -20,8 +29,7 @@ for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
 app.use(ElementPlus,{
     local:zhCn
 })
-
-app.use(createPinia())
+app.use(pinia)
 app.use(router)
 
 app.mount('#app')

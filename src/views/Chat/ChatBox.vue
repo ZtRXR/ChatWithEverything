@@ -2,19 +2,19 @@
 
 import BoxTitle from './ChatTitle.vue'
 import MessBox from './ChatMess.vue'
+import SendConsole from './SendConsole.vue'
 
 </script>
 
 <template>
     <div class="chatOutBox">
         <BoxTitle>
-            <template #ChatName>
-                TestUserName
+            <template>
             </template>
         </BoxTitle>
         <MessBox>
-            
         </MessBox>
+        <SendConsole />
     </div>
 </template>
 

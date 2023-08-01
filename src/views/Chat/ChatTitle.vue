@@ -1,15 +1,13 @@
 <script setup>
-
-
-
+import {useRoute} from 'vue-router'
+const route = useRoute()
+// console.log(route.query.ChatName)
 </script>
 
 <template>
     <div class="ChatBoxTitle">
         <span>
-            <slot name='ChatName'>
-                无名用户
-            </slot>
+            {{ route.params.ChatName }}
         </span>
     </div>
 </template>

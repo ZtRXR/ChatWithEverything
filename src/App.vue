@@ -30,8 +30,8 @@ import Header from './components/Main/Header.vue'
 }
 
 .el-aside {
-  width: 20%;
-  min-width: 185px;
+  /* min-width: 185px; */
+  width: auto;
 }
 
 .el-main {

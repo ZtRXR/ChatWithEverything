@@ -7,15 +7,10 @@ const router = createRouter({
     {
       path:'/',
       name:'roote',
-      redirect:'/home'
+      redirect:'/chat/home'
     },
     {
-      path: '/home',
-      name: 'index',
-      component: ()=>import ('../views/Main/ViewIndex.vue'),
-    },
-    {
-      path:'/chat',
+      path:'/chat/:ChatName',
       name:'chat',
       component:()=>import('../views/Chat/Main.vue')
     }

@@ -1,49 +1,13 @@
 <script setup>
 import {ref,onMounted} from 'vue'
-let Mess = [
-    {
-        id:1,
-        word:"nusoidfnuioshgusiodnghuoisdnfoggs.f;g,set,grtsletgghsetyohterynusoidfnuioshgusiodnghuoisdnfoggs.f;g,set,grtsletgghsetyohterynusoidfnuioshgusiodnghuoisdnfoggs.f;g,set,grtsletgghsetyohteryf;g,set,grtsletgghsetyohterynusoidfnuioshgusiodnghuoisdnfoggs.f;g,set,grtsletgghsetyohteryf;g,set,grtsletgghsetyohterynusoidfnuioshgusiodnghuoisdnfoggs.f;g,set,grtsletgghsetyohteryf;g,set,grtsletgghsetyohterynusoidfnuioshgusiodnghuoisdnfoggs.f;g,set,grtsletgghsetyohteryf;g,set,grtsletgghsetyohterynusoidfnuioshgusiodnghuoisdnfoggs.f;g,set,grtsletgghsetyohteryf;g,set,grtsletgghsetyohterynusoidfnuioshgusiodnghuoisdnfoggs.f;g,set,grtsletgghsetyohteryf;g,set,grtsletgghsetyohterynusoidfnuioshgusiodnghuoisdnfoggs.f;g,set,grtsletgghsetyohteryf;g,set,grtsletgghsetyohterynusoidfnuioshgusiodnghuoisdnfoggs.f;g,set,grtsletgghsetyohteryf;g,set,grtsletgghsetyohterynusoidfnuioshgusiodnghuoisdnfoggs.f;g,set,grtsletgghsetyohteryf;g,set,grtsletgghsetyohterynusoidfnuioshgusiodnghuoisdnfoggs.f;g,set,grtsletgghsetyohtery"
-    },
-    {
-        id:2,
-        word:"234827309857248095702458924578934275893245"
-    },
-    {
-        id:2,
-        word:"nusoidfnuioshgusiodnghuo34532452345324543525"
-    },
-    {
-        id:1,
-        word:"nusoidfnuioshgusiodnghuoisdnfoggs.f;g,set,grtsletgghsetyohtery"
-    },
-    {
-        id:2,
-        word:"234827309857248095702458924578934275893245"
-    },
-    {
-        id:2,
-        word:"nusoidfnuioshgusiodnghuo34532452345324543525"
-    },
-    {
-        id:1,
-        word:"nusoidfnuioshgusiodnghuoisdnfoggs.f;g,set,grtsletgghsetyohtery"
-    },
-    {
-        id:2,
-        word:"234827309857248095702458924578934275893245"
-    },
-    {
-        id:2,
-        word:"nusoidfnuioshgusiodnghuo34532452345324543525"
-    },
-    {
-        id:1,
-        word:"nusoidfnuioshgusiodnghuoisdnfoggs.f;g,set,grtsletgghsetyohtery"
-    }
-]
-const Chatwindow = ref(null)
+import { useRoute } from 'vue-router'
+import {useMessage} from '../../stores/ChatMessage'
+import {useUser} from '../../stores/User'
 
+const Chatwindow = ref(null)
+const Messages = useMessage()
+const route = useRoute()
+const User = useUser()
 const scrolltoBotton = () =>{
     Chatwindow.value.scrollTop = Chatwindow.value.scrollHeight;
 }
@@ -51,19 +15,19 @@ const scrolltoBotton = () =>{
 onMounted(()=>{
     scrolltoBotton()
 })
-
+// console.log(route.params.ChatName)
 
 </script>
 
 
 <template>
     <div class="ChatWindow" ref="Chatwindow">
-        <div class="ChatMess" :style="AMess.id==2?'flex-direction: row-reverse':''" v-for="(AMess,index) in Mess" :key="AMess.id.id">
+        <div v-if="Messages.Users[route.params.ChatName]!=null" class="ChatMess" :style="AMess.name!=User.name?'flex-direction: row-reverse':''" v-for="(AMess,index) in Messages.Users[route.params.ChatName].Hist" :key="index">
             <div class="headPhoto">
                 
             </div>
             <div class="MessText">
-                {{ AMess.word }}
+                {{ AMess.Mess }}
             </div>
         </div>
     </div>
@@ -101,7 +65,7 @@ onMounted(()=>{
     margin: 10px;
     background-color: rgb(189, 201, 255);
     border-radius: 10px;
-    min-height: 70px;
+    min-height: 10px;
     word-wrap: break-word;
     padding: 18px;
 }
