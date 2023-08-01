@@ -4,6 +4,8 @@ import BoxTitle from './ChatTitle.vue'
 import MessBox from './ChatMess.vue'
 import SendConsole from './SendConsole.vue'
 
+
+
 </script>
 
 <template>

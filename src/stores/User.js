@@ -5,7 +5,7 @@ import {ref} from 'vue'
 // 第一个参数是应用程序中 store 的唯一 id
 export const useUser = defineStore('User', ()=>{
     let name = ref('User')
-    let id = ref(1)
+    let id = ref(-1)
     return {
         name,
         id

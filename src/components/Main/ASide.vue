@@ -41,7 +41,7 @@ let isCollapse = reactive({
                     </el-sub-menu>
                 </el-sub-menu> -->
                 <!-- <RouterLink to="/home"> -->
-                <el-menu-item index="/chat/home">
+                <el-menu-item index="/chat/0">
                     <el-icon>
                         <ChatDotRound />
                     </el-icon>

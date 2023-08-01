@@ -7,7 +7,7 @@ const router = createRouter({
     {
       path:'/',
       name:'roote',
-      redirect:'/chat/home'
+      redirect:'/chat/0'
     },
     {
       path:'/chat/:ChatName',
