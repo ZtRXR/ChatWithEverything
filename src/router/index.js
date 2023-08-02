@@ -1,4 +1,6 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
+// import { useUser } from '../stores/User'
+// const User = useUser()
 
 
 const router = createRouter({
@@ -13,6 +15,19 @@ const router = createRouter({
       path:'/chat/:ChatName',
       name:'chat',
       component:()=>import('../views/Chat/Main.vue')
+    },
+    {
+      path:'/login',
+      name:"login",
+      component:()=>import('../views/Login/Login.vue'),
+      // redirect:'/login/ask',
+      // children:[
+      //   {
+      //     path:'/login/ask',
+      //     name:'loginAsk',
+      //     component:()=>import('../views/Login/LoginAsk.vue')
+      //   }
+      // ]
     }
     // {
     //   path: '/about',
@@ -24,5 +39,6 @@ const router = createRouter({
     // }
   ]
 })
+
 
 export default router

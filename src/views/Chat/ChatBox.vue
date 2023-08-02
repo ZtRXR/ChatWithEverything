@@ -3,9 +3,13 @@
 import BoxTitle from './ChatTitle.vue'
 import MessBox from './ChatMess.vue'
 import SendConsole from './SendConsole.vue'
-
-
-
+import { useRouter } from 'vue-router';
+import { useUser } from '../../stores/User';
+const User = useUser()
+const router = useRouter()
+if(!User.IsLogin){
+    router.push('/login')
+}
 </script>
 
 <template>
@@ -14,9 +18,9 @@ import SendConsole from './SendConsole.vue'
             <template>
             </template>
         </BoxTitle>
-        <MessBox>
+        <MessBox v-if="User.IsLogin">
         </MessBox>
-        <SendConsole />
+        <SendConsole v-if="User.IsLogin" />
     </div>
 </template>
 

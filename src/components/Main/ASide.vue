@@ -1,10 +1,12 @@
 <script setup>
-import { ref ,reactive} from 'vue';
+import { ref, reactive } from 'vue';
 import { useRouter, useRoute } from 'vue-router'
 import { onBeforeMount } from 'vue'
+import { useUser } from '../../stores/User';
+const User = useUser()
 let route = useRoute()
 let isCollapse = reactive({
-    is:false
+    is: false
 })
 // const handleOpen = (key, keyPath) => {
     // console.log(key, keyPath)
@@ -41,7 +43,13 @@ let isCollapse = reactive({
                     </el-sub-menu>
                 </el-sub-menu> -->
                 <!-- <RouterLink to="/home"> -->
-                <el-menu-item index="/chat/0">
+                <el-menu-item index="/login" v-if="!User.IsLogin">
+                    <el-icon>
+                        <Position />
+                    </el-icon>
+                    <span>登录</span>
+                </el-menu-item>
+                <el-menu-item index="/chat/0" v-if="User.IsLogin">
                     <el-icon>
                         <ChatDotRound />
                     </el-icon>
@@ -55,14 +63,14 @@ let isCollapse = reactive({
                     <span>Navigator Three</span>
                 </el-menu-item> -->
                 <!-- <RouterLink to="/chat"> -->
-                <el-menu-item index="/chat/Zengtudor">
+                <el-menu-item index="/chat/Zengtudor" v-if="User.IsLogin">
 
                     <el-icon>
                         <Document />
                     </el-icon>
                     <span>站长博客</span>
                 </el-menu-item>
-                
+
                 <!-- </RouterLink> -->
             </el-menu>
         </el-col>

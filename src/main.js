@@ -11,6 +11,8 @@ import router from './router'
 import { createPinia } from 'pinia'
 import piniaPluginPersistedstate from 'pinia-plugin-persistedstate'
 
+import api from './HttpA'
+
 const pinia = createPinia()
 pinia.use(piniaPluginPersistedstate)
 
@@ -31,5 +33,7 @@ app.use(ElementPlus,{
 })
 app.use(pinia)
 app.use(router)
+
+app.config.globalProperties.$axios=api;
 
 app.mount('#app')
